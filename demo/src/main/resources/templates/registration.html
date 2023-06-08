@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <style>
-    body {
+  <meta charset="UTF-8">
+  <title>Registration</title>
+  <style>
+     body {
     background-color: #70B3F7 !important;
     display: flex;
     justify-content: center;
@@ -36,7 +36,7 @@ label {
 
 input[type="text"],
 input[type="password"] {
-    background-color: #ECECEC;
+    background-color: #ECECEC; /* Updated color */
     width: 80%;
     padding: 8px;
     margin-top:10px;
@@ -63,27 +63,24 @@ input[type="submit"] {
     text-align: center;
     color: white;
 }
-.link {
-    margin-top: 10px;
-}
+
 
     </style>
 </head>
 <body>
-<div class="container">
-    <h2>Login</h2>
-    <form action="/login" method="POST">
-        <br>
-        <label for="username"></label>
-        <input type="text" id="username" name="username" required placeholder="Username">
-        <label for="password"></label>
-        <input type="password" id="password" name="password" required placeholder="Password"><br>
-        <input type="submit" value="Login" name="loginButton">
-    </form>
-    <br>
 
-    <p th:if="${error}" style="color: red;">Invalid username or password.</p>
-    <span>Don't have an account? <a href="registration" class="link">click here</a></span>
+<div class="container">
+  <h2>Registration</h2>
+  <form action="/saveData" method="POST">
+    <br>
+    <label for="username"></label>
+    <input type="text" id="username" name="username" required placeholder="Username">
+    <label for="password"></label>
+    <input type="password" id="password" name="password" required placeholder="Password"><br>
+    <input type="submit" value="Register">
+  </form>
+  <br>
+  <span>Account already created? <a href="/" class="link">return</a></span>
 </div>
 </body>
 </html>
