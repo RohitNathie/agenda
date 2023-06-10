@@ -7,6 +7,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "`User`")
 public class UserCredentials {
@@ -20,6 +22,11 @@ public class UserCredentials {
 
     @Column(name = "password")
     private String password;
+
+    public UserCredentials() {
+
+    }
+
 
     // Getter and Setter methods
 
@@ -50,5 +57,27 @@ public class UserCredentials {
     public UserCredentials(String username, String password) {
         this.username = username;
         this.password = password;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserCredentials that = (UserCredentials) o;
+        return Objects.equals(id, that.id) && Objects.equals(username, that.username) && Objects.equals(password, that.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, username, password);
+    }
+
+
+    @Override
+    public String toString() {
+        return "UserCredentials{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                '}';
     }
 }
